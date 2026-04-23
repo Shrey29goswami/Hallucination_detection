@@ -1,0 +1,5 @@
+Alignment guardrails in production assistants often include toxicity screening, bias detection, prompt injection checks, and policy-based blocking. These controls should run before and after generation. Input guardrails detect unsafe requests, while output guardrails detect harmful or misaligned model responses.
+
+A useful risk scoring layer combines content safety signals with grounding signals. For example, a system may lower trust when retrieval confidence is weak, when citation coverage is incomplete, or when the answer contains generalized claims about protected groups.
+
+Guardrails do not replace retrieval quality. They reduce unsafe behavior, but factual reliability still depends on evidence retrieval, source diversity, and answer validation.
