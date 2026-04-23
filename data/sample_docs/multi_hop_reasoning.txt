@@ -1,0 +1,5 @@
+Multi-hop reasoning answers questions that require combining facts from multiple chunks or documents. GraphRAG supports this by connecting chunks through shared entities and concepts, then expanding retrieval to nearby nodes in the graph.
+
+A practical GraphRAG pipeline often starts with dense and sparse retrieval, identifies the best seed chunks, and then expands through one or two graph hops. This increases recall for linked evidence without always sending the entire corpus to the language model.
+
+The best results come from balancing recall and precision. Too much graph expansion introduces noise, while too little expansion misses connected evidence required for factual answers.

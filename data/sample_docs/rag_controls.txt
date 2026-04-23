@@ -1,0 +1,5 @@
+Enterprise RAG systems reduce hallucination when they ground answers in retrieved evidence, require explicit citations, and score retrieval confidence before generation. A strong design combines semantic retrieval, sparse retrieval, and reranking so the system does not rely on a single search method.
+
+Cross-source validation further reduces unsupported claims. When two or more documents independently support the same answer, the assistant can raise its trust score. When the evidence conflicts or only one weak source exists, the assistant should narrow the answer and state uncertainty.
+
+Self-reflection prompts can improve answer quality when they specifically ask the model to remove unsupported claims and rewrite only from evidence. Reflection is more reliable when it is paired with validation rather than used alone.
