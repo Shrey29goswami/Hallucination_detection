@@ -1,0 +1,93 @@
+#include <stdio.h>
+
+// Function to perform the Quick Sort algorithm
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j <= high - 1; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        int partitionIndex = i + 1;
+
+        quickSort(arr, low, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, high);
+    }
+}
+
+// Function to merge two sorted arrays into one sorted array
+void mergeSortedArrays(int arr1[], int n1, int arr2[], int n2, int merged[]) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < n1 && j < n2) {
+        if (arr1[i] < arr2[j]) {
+            merged[k++] = arr1[i++];
+        } else {
+            merged[k++] = arr2[j++];
+        }
+    }
+
+    while (i < n1) {
+        merged[k++] = arr1[i++];
+    }
+
+    while (j < n2) {
+        merged[k++] = arr2[j++];
+    }
+}
+
+int main() {
+    int n1, n2;
+
+    // Input the size of the collections for Aneesh and Surya
+    printf("Enter the number of integers for Aneesh: ");
+    scanf("%d", &n1);
+    printf("Enter the number of integers for Surya: ");
+    scanf("%d", &n2);
+
+    int aneesh[n1], surya[n2];
+
+    // Input the integers for Aneesh's collection
+    printf("Enter the integers for Aneesh:\n");
+    for (int i = 0; i < n1; i++) {
+        scanf("%d", &aneesh[i]);
+    }
+
+    // Input the integers for Surya's collection
+    printf("Enter the integers for Surya:\n");
+    for (int i = 0; i < n2; i++) {
+        scanf("%d", &surya[i]);
+    }
+
+    // Sort Aneesh's collection using Quick Sort
+    quickSort(aneesh, 0, n1 - 1);
+
+    // Sort Surya's collection using Quick Sort
+    quickSort(surya, 0, n2 - 1);
+
+    // Calculate the size of the merged array
+    int mergedSize = n1 + n2;
+    int merged[mergedSize];
+
+    // Merge the sorted collections
+    mergeSortedArrays(aneesh, n1, surya, n2, merged);
+
+    // Print the combined sorted collection
+    printf("Combined Sorted Integer Collection:\n");
+    for (int i = 0; i < mergedSize; i++) {
+        printf("%d ", merged[i]);
+    }
+
+    return 0;
+}
