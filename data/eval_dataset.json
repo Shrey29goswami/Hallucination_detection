@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What design choices reduce hallucination in enterprise RAG systems?",
+    "expected_answer": "Enterprise RAG reduces hallucination by grounding answers in retrieved evidence, requiring citations, combining semantic and sparse retrieval, and validating claims across multiple sources."
+  },
+  {
+    "question": "How does GraphRAG help multi-hop reasoning?",
+    "expected_answer": "GraphRAG helps multi-hop reasoning by linking chunks through shared entities and expanding retrieval through nearby graph nodes to gather connected evidence."
+  },
+  {
+    "question": "Do guardrails replace retrieval quality?",
+    "expected_answer": "No. Guardrails reduce unsafe behavior, but factual reliability still depends on retrieval quality, source diversity, and answer validation."
+  }
+]
